@@ -1239,54 +1239,6 @@ wheels = [
 ]
 
 [[package]]
-name = "resume-screener"
-version = "1.0.0"
-source = { editable = "." }
-dependencies = [
-    { name = "fastapi" },
-    { name = "httpx" },
-    { name = "openai" },
-    { name = "pydantic", extra = ["email"] },
-    { name = "pydantic-settings" },
-    { name = "pypdf" },
-    { name = "python-multipart" },
-    { name = "structlog" },
-    { name = "uvicorn", extra = ["standard"] },
-]
-
-[package.optional-dependencies]
-dev = [
-    { name = "mypy" },
-    { name = "pytest" },
-    { name = "pytest-asyncio" },
-    { name = "pytest-cov" },
-    { name = "ruff" },
-]
-ui = [
-    { name = "streamlit" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "fastapi", specifier = ">=0.115.0" },
-    { name = "httpx", specifier = ">=0.27.0" },
-    { name = "mypy", marker = "extra == 'dev'", specifier = ">=1.13.0" },
-    { name = "openai", specifier = ">=1.50.0" },
-    { name = "pydantic", extras = ["email"], specifier = ">=2.9.0" },
-    { name = "pydantic-settings", specifier = ">=2.5.0" },
-    { name = "pypdf", specifier = ">=5.0.0" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0.0" },
-    { name = "pytest-asyncio", marker = "extra == 'dev'", specifier = ">=0.24.0" },
-    { name = "pytest-cov", marker = "extra == 'dev'", specifier = ">=5.0.0" },
-    { name = "python-multipart", specifier = ">=0.0.12" },
-    { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.7.0" },
-    { name = "streamlit", marker = "extra == 'ui'", specifier = ">=1.40.0" },
-    { name = "structlog", specifier = ">=24.0.0" },
-    { name = "uvicorn", extras = ["standard"], specifier = ">=0.32.0" },
-]
-provides-extras = ["dev", "ui"]
-
-[[package]]
 name = "rpds-py"
 version = "0.30.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1392,6 +1344,54 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/87/44/90fa543014c45560cae1fffc63ea059fb3575ee6e1cb654562197e5d16fb/ruff-0.14.14-py3-none-win_amd64.whl", hash = "sha256:3dde1435e6b6fe5b66506c1dff67a421d0b7f6488d466f651c07f4cab3bf20fd", size = 11630486, upload-time = "2026-01-22T22:30:10.852Z" },
     { url = "https://files.pythonhosted.org/packages/9e/6a/40fee331a52339926a92e17ae748827270b288a35ef4a15c9c8f2ec54715/ruff-0.14.14-py3-none-win_arm64.whl", hash = "sha256:56e6981a98b13a32236a72a8da421d7839221fa308b223b9283312312e5ac76c", size = 10920448, upload-time = "2026-01-22T22:30:15.417Z" },
 ]
+
+[[package]]
+name = "screengpt"
+version = "1.0.0"
+source = { editable = "." }
+dependencies = [
+    { name = "fastapi" },
+    { name = "httpx" },
+    { name = "openai" },
+    { name = "pydantic", extra = ["email"] },
+    { name = "pydantic-settings" },
+    { name = "pypdf" },
+    { name = "python-multipart" },
+    { name = "structlog" },
+    { name = "uvicorn", extra = ["standard"] },
+]
+
+[package.optional-dependencies]
+dev = [
+    { name = "mypy" },
+    { name = "pytest" },
+    { name = "pytest-asyncio" },
+    { name = "pytest-cov" },
+    { name = "ruff" },
+]
+ui = [
+    { name = "streamlit" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "fastapi", specifier = ">=0.115.0" },
+    { name = "httpx", specifier = ">=0.27.0" },
+    { name = "mypy", marker = "extra == 'dev'", specifier = ">=1.13.0" },
+    { name = "openai", specifier = ">=1.50.0" },
+    { name = "pydantic", extras = ["email"], specifier = ">=2.9.0" },
+    { name = "pydantic-settings", specifier = ">=2.5.0" },
+    { name = "pypdf", specifier = ">=5.0.0" },
+    { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0.0" },
+    { name = "pytest-asyncio", marker = "extra == 'dev'", specifier = ">=0.24.0" },
+    { name = "pytest-cov", marker = "extra == 'dev'", specifier = ">=5.0.0" },
+    { name = "python-multipart", specifier = ">=0.0.12" },
+    { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.7.0" },
+    { name = "streamlit", marker = "extra == 'ui'", specifier = ">=1.40.0" },
+    { name = "structlog", specifier = ">=24.0.0" },
+    { name = "uvicorn", extras = ["standard"], specifier = ">=0.32.0" },
+]
+provides-extras = ["dev", "ui"]
 
 [[package]]
 name = "six"

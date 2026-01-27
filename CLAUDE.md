@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-AI-powered resume screening system that evaluates candidates against job descriptions using OpenAI GPT-4. FastAPI backend with Streamlit UI. Uses an 8-agent pipeline for comprehensive candidate evaluation.
+ScreenGPT is an open-source AI agent for automated resume screening. It parses resumes, matches skills and experience to job requirements, ranks candidates by fit, and generates clear screening rationales. Built for extensibility, auditability, and easy integration into HR workflows. Uses an 8-agent pipeline with FastAPI backend and Streamlit UI.
 
 ## Commands
 

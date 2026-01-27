@@ -5,7 +5,7 @@ import streamlit as st
 
 API_URL = "http://localhost:8000"
 
-st.title("Resume Screening App")
+st.title("ScreenGPT")
 
 uploaded_file = st.file_uploader("Upload a resume (PDF)", type="pdf")
 

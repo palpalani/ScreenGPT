@@ -1,7 +1,7 @@
 [project]
-name = "resume-screener"
+name = "screengpt"
 version = "1.0.0"
-description = "AI-powered resume screening system using OpenAI GPT-4"
+description = "ScreenGPT is an open-source AI agent for automated resume screening. It parses resumes, matches skills and experience to job requirements, ranks candidates by fit, and generates clear screening rationales. Built for extensibility, auditability, and easy integration into HR workflows."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [

@@ -1,6 +1,6 @@
-# AI Resume Screener
+# ScreenGPT
 
-An AI-powered resume screening system that evaluates candidates against job descriptions using OpenAI GPT-4. Upload a PDF resume and get instant feedback on candidate fit, skill matching, and hiring recommendations.
+ScreenGPT is an open-source AI agent for automated resume screening. It parses resumes, matches skills and experience to job requirements, ranks candidates by fit, and generates clear screening rationales. Built for extensibility, auditability, and easy integration into HR workflows.
 
 ## Key Features
 
@@ -71,8 +71,8 @@ Before you begin, ensure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/ai-resume-screener.git
-cd ai-resume-screener
+git clone https://github.com/palpalani/ScreenGPT.git
+cd screengpt
 ```
 
 ### 2. Install Dependencies
@@ -196,7 +196,7 @@ JD PDF ──────┘                                           │
 ## Project Structure
 
 ```
-ai-resume-screener/
+screengpt/
 ├── src/
 │   └── resume_screener/
 │       ├── __init__.py
