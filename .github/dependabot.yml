@@ -11,6 +11,13 @@ updates:
     labels:
       - "dependencies"
       - "python"
+    ignore:
+      # CVE: DoS via recursion in json_format.ParseDict() with nested Any messages
+      # No patched version available as of 2026-01-27
+      # Transitive dependency from streamlit - low risk as we don't parse untrusted protobuf JSON
+      # TODO: Remove this ignore when protobuf > 6.33.4 is released with a fix
+      - dependency-name: "protobuf"
+        versions: ["<= 6.33.4"]
     groups:
       dev-dependencies:
         patterns:
