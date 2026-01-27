@@ -13,9 +13,11 @@ if uploaded_file is not None:
     st.write("File uploaded successfully!", uploaded_file.name)
 
     if st.button("Process Resume"):
-        with st.spinner("Processing resume..."):
+        with st.spinner(
+            "Processing resume through 8-agent pipeline (this may take a few minutes)..."
+        ):
             try:
-                with httpx.Client(timeout=60.0) as client:
+                with httpx.Client(timeout=180.0) as client:
                     response = client.post(
                         f"{API_URL}/screening/",
                         files={"resume": (uploaded_file.name, uploaded_file, "application/pdf")},
@@ -23,23 +25,50 @@ if uploaded_file is not None:
 
                 if response.status_code == 200:
                     st.success("Resume processed successfully!")
-                    response_data = response.json()
+                    data = response.json()
 
-                    status = response_data.get("candidate_status")
-                    if status == "Selected":
-                        st.success(f"**Status:** {status}")
+                    recommendation = data.get("recommendation", "Unknown")
+                    if recommendation in ["Strong Hire", "Hire"]:
+                        st.success(f"**Recommendation:** {recommendation}")
+                    elif recommendation == "Maybe":
+                        st.warning(f"**Recommendation:** {recommendation}")
                     else:
-                        st.error(f"**Status:** {status}")
+                        st.error(f"**Recommendation:** {recommendation}")
 
-                    st.write("**Feedback:**", response_data.get("reason"))
-                    st.write(
-                        "**Skills Matched:**",
-                        f"{response_data.get('skill_match_percentage')}%",
-                    )
+                    col1, col2, col3 = st.columns(3)
+                    with col1:
+                        st.metric("Overall Score", f"{data.get('overall_score', 0):.1f}")
+                    with col2:
+                        st.metric("Skill Match", f"{data.get('skill_match_score', 0):.1f}")
+                    with col3:
+                        st.metric("Experience Fit", f"{data.get('experience_fit_score', 0):.1f}")
 
-                    matched_skills = response_data.get("matched_skills", [])
-                    if matched_skills:
-                        st.write("**Matched Skills:**", ", ".join(matched_skills))
+                    st.write("**Candidate:**", data.get("candidate_name", "Unknown"))
+                    st.write("**Confidence:**", data.get("confidence", "Unknown"))
+                    st.write("**Summary:**", data.get("summary", ""))
+
+                    strengths = data.get("strengths", [])
+                    if strengths:
+                        st.write("**Strengths:**")
+                        for s in strengths:
+                            st.write(f"- {s}")
+
+                    gaps = data.get("gaps", [])
+                    if gaps:
+                        st.write("**Gaps:**")
+                        for g in gaps:
+                            st.write(f"- {g}")
+
+                    st.write("**Compliance:**", data.get("compliance_status", ""))
+
+                    next_steps = data.get("next_steps", [])
+                    if next_steps:
+                        st.write("**Next Steps:**")
+                        for step in next_steps:
+                            st.write(f"- {step}")
+
+                    with st.expander("Detailed Reasoning"):
+                        st.write(data.get("reasoning", ""))
 
                 else:
                     st.error(f"Error processing resume: {response.text}")

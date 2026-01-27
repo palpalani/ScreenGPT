@@ -23,7 +23,7 @@ class NormalizedSkillsResult(BaseModel):
     match_scores: dict[str, float] = Field(
         default_factory=dict, description="Similarity scores for matched pairs"
     )
-    skill_match_percentage: int = Field(ge=0, le=100)
+    skill_match_percentage: float = Field(ge=0, le=100)
     reasoning: str = Field(description="Explanation of normalization and matching logic")
 
     model_config = {"extra": "ignore"}

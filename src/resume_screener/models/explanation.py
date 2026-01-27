@@ -6,13 +6,13 @@ from pydantic import BaseModel, Field
 class ScoreBreakdown(BaseModel):
     """Breakdown of how the final score was calculated."""
 
-    skill_match_score: int = Field(ge=0, le=100)
+    skill_match_score: float = Field(ge=0, le=100)
     skill_match_weight: float = Field(default=0.6)
     skill_match_details: str = Field(description="Explanation of skill matching")
-    experience_fit_score: int = Field(ge=0, le=100)
+    experience_fit_score: float = Field(ge=0, le=100)
     experience_fit_weight: float = Field(default=0.4)
     experience_fit_details: str = Field(description="Explanation of experience fit")
-    overall_fit_score: int = Field(ge=0, le=100)
+    overall_fit_score: float = Field(ge=0, le=100)
     calculation_formula: str = Field(description="Formula used for calculation")
 
 

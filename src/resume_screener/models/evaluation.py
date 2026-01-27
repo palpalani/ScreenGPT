@@ -10,9 +10,9 @@ class EnhancedEvaluationResult(BaseModel):
 
     candidate_status: Literal["Selected", "Rejected"]
     recommendation: Literal["Strong Hire", "Hire", "Maybe", "No Hire", "Strong No Hire"]
-    skill_match_score: int = Field(ge=0, le=100, description="Normalized skill match score")
-    experience_fit_score: int = Field(ge=0, le=100, description="Experience fit score")
-    overall_fit_score: int = Field(ge=0, le=100, description="Combined overall score")
+    skill_match_score: float = Field(ge=0, le=100, description="Normalized skill match score")
+    experience_fit_score: float = Field(ge=0, le=100, description="Experience fit score")
+    overall_fit_score: float = Field(ge=0, le=100, description="Combined overall score")
     matched_skills: list[str] = Field(default_factory=list)
     missing_skills: list[str] = Field(default_factory=list, description="Required skills not found")
     experience_years: int | None = Field(default=None)
