@@ -23,7 +23,7 @@ dev = [
     "pytest-cov>=5.0.0",
     "ruff>=0.7.0",
     "mypy>=1.13.0",
-    "pip-audit>=2.7.0",
+    "pip-audit>=2.10.0",
 ]
 ui = [
     "streamlit>=1.40.0",
