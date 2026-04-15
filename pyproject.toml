@@ -5,15 +5,15 @@ description = "ScreenGPT is an open-source AI agent for automated resume screeni
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "fastapi>=0.115.0",
-    "uvicorn[standard]>=0.32.0",
-    "openai>=1.50.0",
-    "pydantic[email]>=2.9.0",
-    "pydantic-settings>=2.5.0",
-    "pypdf>=5.0.0",
-    "python-multipart>=0.0.12",
-    "structlog>=24.0.0",
-    "httpx>=0.27.0",
+    "fastapi>=0.135.3",
+    "uvicorn[standard]>=0.44.0",
+    "openai>=2.31.0",
+    "pydantic[email]>=2.13.0",
+    "pydantic-settings>=2.13.1",
+    "pypdf>=6.10.0",
+    "python-multipart>=0.0.26",
+    "structlog>=25.5.0",
+    "httpx>=0.28.1",
 ]
 
 [project.optional-dependencies]
@@ -26,7 +26,7 @@ dev = [
     "pip-audit>=2.7.0",
 ]
 ui = [
-    "streamlit>=1.40.0",
+    "streamlit>=1.56.0",
 ]
 
 [build-system]
